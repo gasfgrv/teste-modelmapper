@@ -2,9 +2,11 @@ package br.com.example.testemodelmapper.model;
 
 import br.com.example.testemodelmapper.model.enumerated.TipoContaEnum;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Builder
 public class Conta {
 
@@ -15,4 +17,5 @@ public class Conta {
     private String agenciaContaPagamento;
     private String numeroContaContaPagamento;
     private String digitoContaPagamento;
+
 }

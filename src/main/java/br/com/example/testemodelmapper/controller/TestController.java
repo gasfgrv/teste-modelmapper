@@ -1,12 +1,12 @@
 package br.com.example.testemodelmapper.controller;
 
 import br.com.example.testemodelmapper.dto.ContaDTO;
-import br.com.example.testemodelmapper.mapper.Mapper;
+import br.com.example.testemodelmapper.mapper.ContaConverter;
 import br.com.example.testemodelmapper.model.Conta;
 import br.com.example.testemodelmapper.model.enumerated.TipoContaEnum;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,14 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @RequestMapping("/conta")
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class TestController {
 
-    private final Mapper mapper;
-
-    @Autowired
-    public TestController(Mapper mapper) {
-        this.mapper = mapper;
-    }
+    private final ContaConverter contaConverter;
 
     @GetMapping("/corrente")
     public ResponseEntity<ContaDTO> testeContaCorrente() {
@@ -34,7 +30,7 @@ public class TestController {
                 .build();
 
         log.info("chamando mapper - Corrente");
-        return ResponseEntity.ok(mapper.convert(conta));
+        return ResponseEntity.ok(contaConverter.convert(conta));
     }
 
     @GetMapping("/pagamento")
@@ -47,6 +43,7 @@ public class TestController {
                 .build();
 
         log.info("chamando mapper - Pagamento");
-        return ResponseEntity.ok(mapper.convert(conta));
+        return ResponseEntity.ok(contaConverter.convert(conta));
     }
+
 }
