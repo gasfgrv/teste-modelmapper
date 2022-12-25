@@ -31,7 +31,8 @@ public class TestController {
                 .digito("9")
                 .build();
 
-        log.info("chamando mapper - Corrente");
+        log.info("Mapeando para conta corrente");
+
         return ResponseEntity.ok(contaConverter.convert(conta));
     }
 
@@ -45,7 +46,8 @@ public class TestController {
                 .digitoContaPagamento("5")
                 .build();
 
-        log.info("chamando mapper - Pagamento");
+        log.info("Mapeando para conta pagamento");
+
         return ResponseEntity.ok(contaConverter.convert(conta));
     }
 

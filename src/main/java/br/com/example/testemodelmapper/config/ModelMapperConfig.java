@@ -2,12 +2,14 @@ package br.com.example.testemodelmapper.config;
 
 import br.com.example.testemodelmapper.dto.ContaDTO;
 import br.com.example.testemodelmapper.model.Conta;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.spi.DestinationSetter;
 import org.modelmapper.spi.SourceGetter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+@Slf4j
 @Configuration
 public class ModelMapperConfig {
 
@@ -25,12 +27,18 @@ public class ModelMapperConfig {
 
     @Bean
     public ModelMapper modelMapper() {
+        log.info("Criando Bean do ModelMapper");
+
         ModelMapper modelMapper = new ModelMapper();
+
+        log.info("Criando TypeMap typeMapContaPagamento");
 
         modelMapper.createTypeMap(Conta.class, ContaDTO.class, "typeMapContaPagamento")
                 .addMapping(GET_AGENCIA_CONTA_PAGAMENTO, SET_AGENCIA)
                 .addMapping(GET_NUMERO_CONTA_CONTA_PAGAMENTO, SET_NUMERO_CONTA)
                 .addMapping(GET_DIGITO_CONTA_PAGAMENTO, SET_DIGITO);
+
+        log.info("Criando TypeMap typeMapContaCorrente");
 
         modelMapper.createTypeMap(Conta.class, ContaDTO.class, "typeMapContaCorrente")
                 .addMapping(GET_AGENCIA_CONTA_CORRENTE, SET_AGENCIA)
