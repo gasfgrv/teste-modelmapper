@@ -4,6 +4,7 @@ import br.com.example.testemodelmapper.dto.ContaDTO;
 import br.com.example.testemodelmapper.mapper.ContaConverter;
 import br.com.example.testemodelmapper.model.Conta;
 import br.com.example.testemodelmapper.model.enumerated.TipoContaEnum;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ public class TestController {
     private final ContaConverter contaConverter;
 
     @GetMapping("/corrente")
+    @Operation(tags = "conta-corrente")
     public ResponseEntity<ContaDTO> testeContaCorrente() {
         Conta conta = Conta.builder()
                 .tipoConta(TipoContaEnum.CONTA_CORRENTE)
@@ -34,6 +36,7 @@ public class TestController {
     }
 
     @GetMapping("/pagamento")
+    @Operation(tags = "conta-pagamento")
     public ResponseEntity<ContaDTO> testeContaPagamento() {
         Conta conta = Conta.builder()
                 .tipoConta(TipoContaEnum.CONTA_PAGAMENTO)
