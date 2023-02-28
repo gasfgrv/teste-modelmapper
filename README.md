@@ -39,7 +39,7 @@ Aplicação de teste para a criação de dois tipos de mapeamento de propriedade
     }
   ],
   "paths": {
-    "/conta/pagamento": {
+    "/v1/contas/conta-pagamento": {
       "get": {
         "tags": [
           "conta-pagamento"
@@ -59,7 +59,7 @@ Aplicação de teste para a criação de dois tipos de mapeamento de propriedade
         }
       }
     },
-    "/conta/corrente": {
+    "/v1/contas/conta-corrente": {
       "get": {
         "tags": [
           "conta-corrente"
@@ -108,13 +108,13 @@ Aplicação de teste para a criação de dois tipos de mapeamento de propriedade
 <details>
   <summary>Documentação dos endpoints</summary>
 
-**[GET] /conta/pagamento**
+**[GET] /v1/contas/conta-pagamento**
 
 | Code | Description |
 |------|-------------|
 | 200  | OK          |
 
-**[GET] /conta/corrente**
+**[GET] /v1/contas/conta-corrente**
 
 | Code | Description |
 |------|-------------|

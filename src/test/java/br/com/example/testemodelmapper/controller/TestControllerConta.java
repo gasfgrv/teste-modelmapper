@@ -12,19 +12,19 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class TestControllerTest {
+class TestControllerConta {
 
     private final MockMvc mockMvc;
 
     @Autowired
-    TestControllerTest(MockMvc mockMvc) {
+    TestControllerConta(MockMvc mockMvc) {
         this.mockMvc = mockMvc;
     }
 
     @Test
     @DisplayName("Deve retornar 200 ao converter uma conta corrente")
     void deveRetornar200AoConverterUmaContaCorrente() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/conta/corrente")
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/contas/conta-corrente")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().is(200));
     }
@@ -32,7 +32,7 @@ class TestControllerTest {
     @Test
     @DisplayName("Deve retornar 200 ao converter uma conta pagamento")
     void deveRetornar200AoConverterUmaContaPagamento() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/conta/corrente")
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/contas/conta-corrente")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().is(200));
     }

@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequestMapping("/conta")
+@RequestMapping("/v1/contas")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class TestController {
+public class ContaController {
 
     private final ContaConverter contaConverter;
 
-    @GetMapping("/corrente")
+    @GetMapping("/conta-corrente")
     @Operation(tags = "conta-corrente")
     public ResponseEntity<ContaDTO> testeContaCorrente() {
         Conta conta = Conta.builder()
@@ -36,7 +36,7 @@ public class TestController {
         return ResponseEntity.ok(contaConverter.convert(conta));
     }
 
-    @GetMapping("/pagamento")
+    @GetMapping("/conta-pagamento")
     @Operation(tags = "conta-pagamento")
     public ResponseEntity<ContaDTO> testeContaPagamento() {
         Conta conta = Conta.builder()
