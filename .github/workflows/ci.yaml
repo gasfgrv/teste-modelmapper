@@ -38,8 +38,8 @@ jobs:
       - name: docker sync
         uses: ms-jpq/sync-dockerhub-readme@v1
         with:
-          username: ${{env.DOCKERHUB_USERNAME}}
-          password: ${{env.DOCKERHUB_TOKEN}}
+          username: ${{env.DOCKER_USER}}
+          password: ${{env.DOCKER_TOKEN}}
           repository: gustosilva/teste-modelmapper
           readme: "./README.md"
       
